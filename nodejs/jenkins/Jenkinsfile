@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        docker {
+            image 'node:25.8.1-alpine'
+        }
+    }
+
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
+                sh 'echo "Pipeline running successfully inside Docker"'
+            }
+        }
+    }
+}
